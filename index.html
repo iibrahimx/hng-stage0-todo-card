@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HNG Stage 0 Todo Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="page-title">Todo Item Card</h1>
+
+      <article id="todo-card" class="todo-card" data-testid="test-todo-card">
+        <div class="todo-main">
+          <div class="todo-toggle">
+            <input
+              type="checkbox"
+              id="todo-complete"
+              data-testid="test-todo-complete-toggle"
+            />
+            <label for="todo-complete">Mark task as complete</label>
+          </div>
+
+          <div class="todo-content">
+            <h2 class="todo-title" data-testid="test-todo-title">
+              Prepare notes for Monday's team check-in
+            </h2>
+
+            <p class="todo-description" data-testid="test-todo-description">
+              Review last week's progress, write down key updates, and list any
+              blockers to share during the team check-in meeting.
+            </p>
+
+            <div class="todo-badges">
+              <span
+                class="badge priority-badge"
+                data-testid="test-todo-priority"
+              >
+                Medium
+              </span>
+              <span class="badge status-badge" data-testid="test-todo-status">
+                Pending
+              </span>
+            </div>
+
+            <div class="todo-time-info">
+              <time
+                class="todo-due-date"
+                datetime="2026-04-13T18:00:00Z"
+                data-testid="test-todo-due-date"
+              >
+                🗓 Due Apr 13, 2026
+              </time>
+
+              <time
+                class="todo-time-remaining"
+                data-testid="test-todo-time-remaining"
+                aria-live="polite"
+              >
+                Due in 3 days
+              </time>
+            </div>
+          </div>
+        </div>
+
+        <div class="todo-footer">
+          <ul class="todo-tags" data-testid="test-todo-tags">
+            <li class="tag" data-testid="test-todo-tag-work">work</li>
+            <li class="tag" data-testid="test-todo-tag-urgent">urgent</li>
+            <li class="tag">planning</li>
+            <li class="tag">meeting</li>
+          </ul>
+
+          <div class="todo-actions">
+            <button
+              class="action-button edit-button"
+              type="button"
+              data-testid="test-todo-edit-button"
+            >
+              ✏️ Edit
+            </button>
+            <button
+              class="action-button delete-button"
+              type="button"
+              data-testid="test-todo-delete-button"
+            >
+              🗑 Delete
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

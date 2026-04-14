@@ -1,6 +1,6 @@
-# HNG Stage 0 Todo Card
+# HNG Stage 1A Todo Card
 
-A simple, responsive, and accessible todo item card built with HTML, CSS, and JavaScript for the HNG Frontend Stage 0 task.
+A responsive and accessible todo item card built with HTML, CSS, and JavaScript for the HNG Frontend Stage 1A task.
 
 ---
 
@@ -18,13 +18,18 @@ A simple, responsive, and accessible todo item card built with HTML, CSS, and Ja
 
 ## Features
 
-- Semantic HTML structure
+- Semantic and accessible HTML structure
 - Responsive layout for mobile and desktop
-- Accessible checkbox, buttons, and keyboard focus states
 - Dynamic time remaining updates every 30 seconds
-- Status update when task is marked complete
-- Edit and delete action buttons
-- Required data-testid attributes for automated testing
+- Overdue state handling
+- Expand and collapse for long descriptions
+- Task status dropdown with Pending, In Progress, and Done states
+- Checkbox synced with task status
+- Edit form with Save and Cancel actions
+- Delete action with confirmation prompt
+- Priority badge and visual indicator
+- Keyboard focus states for interactive elements
+- Required `data-testid` attributes for automated testing
 
 ---
 
@@ -54,20 +59,47 @@ cd hng-stage0-todo-card
 
 ---
 
+## What Changed From Stage 0
+
+- Added a task status dropdown
+- Added support for Pending, In Progress, and Done states
+- Synced the checkbox with task status
+- Added an edit form with title, description, priority, and due date fields
+- Added Save and Cancel functionality
+- Added delete confirmation before removing the card
+- Added expand and collapse for long descriptions
+- Added overdue handling and completed state text
+- Added more visual feedback for priority and task states
+
+---
+
+## Accessibility Notes
+
+- Used semantic HTML elements such as `<article>`, `<time>`, `<button>`, `<form>`, `<label>`, and `<select>`
+- Added visible keyboard focus states for buttons, inputs, and select fields
+- Kept labels connected to form inputs
+- Used `aria-expanded` for edit and expand toggle states
+- Preserved all required `data-testid` attributes from Stage 0 and Stage 1A
+
+---
+
 ## Decisions Made
 
-- Used plain HTML, CSS, and JavaScript because the task is small and does not require a framework.
-- Used semantic HTML elements such as `<article>`, `<time>`, `<button>`, `<label>`, and `<ul>` for accessibility and structure.
-- Added `data-testid` attributes exactly as required for automated testing.
-- Used a fixed due date and JavaScript to calculate the time remaining dynamically.
-- Kept the design clean and responsive without overcomplicating the layout.
+- Used plain HTML, CSS, and JavaScript because the task is still small enough not to require a framework
+- Used a shared JavaScript state object to keep the card content and UI in sync
+- Kept the edit form hidden until needed to prevent the UI from being jumbled
+- Hid the normal card content while editing to make the form easier to use
+- Used small helper functions for rendering and event handling to keep the code easier to follow
+- Kept the design simple and close to the task requirements
 
 ---
 
 ## Trade-offs
 
-- The edit and delete buttons use simple placeholder actions instead of full functionality because this was acceptable in the task instructions.
-- Basic tests were not added in order to keep the project lightweight and focused on the main requirements.
+- The project still uses a single todo card instead of multiple cards because that is what the task required
+- Delete removes the card immediately after confirmation instead of storing it elsewhere
+- Data is not saved after page refresh because local storage was not required
+- The project does not include automated tests in order to stay focused on the main task requirements
 
 ---
 

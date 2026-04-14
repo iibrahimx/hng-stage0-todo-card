@@ -32,21 +32,61 @@
               Prepare notes for Monday's team check-in
             </h2>
 
-            <p class="todo-description" data-testid="test-todo-description">
-              Review last week's progress, write down key updates, and list any
-              blockers to share during the team check-in meeting.
-            </p>
-
-            <div class="todo-badges">
-              <span
-                class="badge priority-badge"
-                data-testid="test-todo-priority"
+            <div class="todo-description-wrapper">
+              <div
+                class="todo-collapsible-section"
+                id="todo-collapsible-section"
+                data-testid="test-todo-collapsible-section"
               >
-                Medium
-              </span>
-              <span class="badge status-badge" data-testid="test-todo-status">
-                Pending
-              </span>
+                <p class="todo-description" data-testid="test-todo-description">
+                  Review last week's progress, write down key updates, and list
+                  any blockers to share during the team check-in meeting.
+                </p>
+              </div>
+
+              <button
+                class="expand-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="todo-collapsible-section"
+                data-testid="test-todo-expand-toggle"
+              >
+                Show more
+              </button>
+            </div>
+
+            <div class="todo-meta">
+              <div class="todo-badges">
+                <span
+                  class="priority-indicator"
+                  aria-hidden="true"
+                  data-testid="test-todo-priority-indicator"
+                ></span>
+
+                <span
+                  class="badge priority-badge"
+                  data-testid="test-todo-priority"
+                >
+                  Medium
+                </span>
+
+                <span class="badge status-badge" data-testid="test-todo-status">
+                  Pending
+                </span>
+              </div>
+
+              <div class="todo-status-control-group">
+                <label for="todo-status-control">Task status</label>
+                <select
+                  id="todo-status-control"
+                  class="todo-status-control"
+                  data-testid="test-todo-status-control"
+                >
+                  <option value="Pending" selected>Pending</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+                </select>
+              </div>
             </div>
 
             <div class="todo-time-info">
@@ -65,6 +105,12 @@
               >
                 Due in 3 days
               </time>
+
+              <span
+                class="todo-overdue-indicator"
+                data-testid="test-todo-overdue-indicator"
+                aria-live="polite"
+              ></span>
             </div>
           </div>
         </div>
@@ -94,6 +140,79 @@
             </button>
           </div>
         </div>
+
+        <form
+          class="todo-edit-form hidden"
+          data-testid="test-todo-edit-form"
+          aria-label="Edit todo task"
+        >
+          <div class="form-group">
+            <label for="todo-edit-title">Title</label>
+            <input
+              id="todo-edit-title"
+              name="title"
+              type="text"
+              value="Prepare notes for Monday's team check-in"
+              data-testid="test-todo-edit-title-input"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="todo-edit-description">Description</label>
+            <textarea
+              id="todo-edit-description"
+              name="description"
+              rows="4"
+              data-testid="test-todo-edit-description-input"
+            >
+Review last week's progress, write down key updates, and list any blockers to share during the team check-in meeting.</textarea
+            >
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="todo-edit-priority">Priority</label>
+              <select
+                id="todo-edit-priority"
+                name="priority"
+                data-testid="test-todo-edit-priority-select"
+              >
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="todo-edit-due-date">Due date</label>
+              <input
+                id="todo-edit-due-date"
+                name="dueDate"
+                type="datetime-local"
+                value="2026-04-13T18:00"
+                data-testid="test-todo-edit-due-date-input"
+              />
+            </div>
+          </div>
+
+          <div class="todo-edit-actions">
+            <button
+              class="action-button edit-button"
+              type="submit"
+              data-testid="test-todo-save-button"
+            >
+              Save
+            </button>
+
+            <button
+              class="action-button delete-button"
+              type="button"
+              data-testid="test-todo-cancel-button"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </article>
     </main>
 

@@ -297,7 +297,8 @@ function handleDeleteClick() {
     return;
   }
 
-  todoCard.remove();
+  // todoCard.remove();
+  window.alert("Todo Card deleted");
 }
 
 setInterval(() => {
